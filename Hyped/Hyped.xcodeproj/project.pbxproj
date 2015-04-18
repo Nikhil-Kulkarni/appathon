@@ -352,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nikhil Kulkarni (4UUM5VN9Z4)";
 				INFOPLIST_FILE = Hyped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hyped;
@@ -362,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nikhil Kulkarni (4UUM5VN9Z4)";
 				INFOPLIST_FILE = Hyped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hyped;
@@ -421,6 +423,7 @@
 				11DD6D561AE1CBB8005EB151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11DD6D571AE1CBB8005EB151 /* Build configuration list for PBXNativeTarget "HypedTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +432,7 @@
 				11DD6D591AE1CBB8005EB151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

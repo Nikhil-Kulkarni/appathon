@@ -10,29 +10,29 @@
 	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4F043E1323539B6412E6E90DDE3F034E29AAD23C</key>
-		<string>https://github.com/Nikhil-Kulkarni/appathon.git</string>
+		<key>892340F3DB8E578032DD757A2CB5832F0FA39CD6</key>
+		<string>https://github.com/nikhil-kulkarni/appathon.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Hyped/Hyped.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4F043E1323539B6412E6E90DDE3F034E29AAD23C</key>
+		<key>892340F3DB8E578032DD757A2CB5832F0FA39CD6</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Nikhil-Kulkarni/appathon.git</string>
+	<string>https://github.com/nikhil-kulkarni/appathon.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4F043E1323539B6412E6E90DDE3F034E29AAD23C</string>
+	<string>892340F3DB8E578032DD757A2CB5832F0FA39CD6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4F043E1323539B6412E6E90DDE3F034E29AAD23C</string>
+			<string>892340F3DB8E578032DD757A2CB5832F0FA39CD6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>appathon</string>
 		</dict>

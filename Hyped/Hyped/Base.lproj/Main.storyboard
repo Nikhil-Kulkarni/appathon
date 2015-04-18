@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowJackets.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JQq-xr-2so">
-                                <rect key="frame" x="0.0" y="28" width="375" height="404"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-km-u2C">
                                 <rect key="frame" x="69" y="433" width="237" height="83"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="42"/>
@@ -43,7 +40,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Georgia Tech Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dzB-Mn-IyG">
                                         <rect key="frame" x="8" y="42" width="359" height="30"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ab-Ms-07k">
                                         <rect key="frame" x="8" y="90" width="359" height="30"/>
@@ -58,7 +55,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="xmZ-HA-FDn" kind="presentation" id="rkg-jE-JMf"/>
+                                            <action selector="loginButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="H63-zi-xGp"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-Dd-9Wn">
@@ -78,6 +75,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowJackets.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JQq-xr-2so">
+                                <rect key="frame" x="0.0" y="28" width="375" height="404"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -92,16 +92,17 @@
                         <outlet property="reserve" destination="Ui3-BN-v2g" id="UXN-TS-PsG"/>
                         <outlet property="welcomeDescription" destination="FwN-fc-zFh" id="mwN-uT-oMA"/>
                         <outlet property="welcomeText" destination="vJC-km-u2C" id="X0f-el-Aqs"/>
+                        <segue destination="oOa-Oj-T5z" kind="presentation" identifier="reservations" id="IZz-Fd-FBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251.5" y="353.5"/>
+            <point key="canvasLocation" x="1270.5" y="353.5"/>
         </scene>
         <!--Reservation View Controller-->
         <scene sceneID="qwi-SW-YHI">
             <objects>
-                <viewController id="oOa-Oj-T5z" customClass="ReservationViewController" customModule="Hyped" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reservation" id="oOa-Oj-T5z" customClass="ReservationViewController" customModule="Hyped" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zrm-TI-wgg"/>
                         <viewControllerLayoutGuide type="bottom" id="Glt-G8-WFJ"/>
@@ -110,12 +111,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uqe-sg-NhB">
-                                <rect key="frame" x="0.0" y="197" width="375" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="451016912.10375202">
-                                    <!--2015-04-18 02:28:32 +0000-->
-                                </date>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyZ-5j-qy7">
                                 <rect key="frame" x="0.0" y="78" width="237" height="83"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="42"/>
@@ -128,6 +123,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How long would you like to reserve a room?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-Qe-phJ">
+                                <rect key="frame" x="16" y="380" width="274" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FgT-Md-D6F">
+                                <rect key="frame" x="0.0" y="418" width="375" height="29"/>
+                                <segments>
+                                    <segment title="30 Minutes"/>
+                                    <segment title="1 Hour"/>
+                                    <segment title="1H 30minutes"/>
+                                    <segment title="2 Hours"/>
+                                </segments>
+                                <connections>
+                                    <action selector="delayChange:" destination="oOa-Oj-T5z" eventType="valueChanged" id="8bE-zh-wZF"/>
+                                </connections>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-Qk-odM">
                                 <rect key="frame" x="16" y="595" width="343" height="52"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.66274509800000003" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,24 +150,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="reserveNow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GJT-dL-wBI"/>
-                                    <segue destination="sW4-zf-Crg" kind="popoverPresentation" popoverAnchorView="OkY-Qk-odM" id="slB-lj-44e">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="findARoom:" destination="oOa-Oj-T5z" eventType="touchUpInside" id="ayg-S7-SLX"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="15" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WL-k1-And">
-                                <rect key="frame" x="0.0" y="415" width="375" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="451017480.19739199">
-                                    <!--2015-04-18 02:38:00 +0000-->
-                                </date>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How long would you like to reserve a room?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-Qe-phJ">
-                                <rect key="frame" x="16" y="380" width="274" height="21"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -168,7 +166,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="durationPicker" destination="9WL-k1-And" id="Tbp-IN-eli"/>
+                        <outlet property="segmentControl" destination="FgT-Md-D6F" id="xFx-gM-agy"/>
+                        <segue destination="BOK-FH-9Yl" kind="presentation" identifier="viewList" id="7bI-MP-a3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duO-Qw-hjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,16 +179,27 @@
         <scene sceneID="X0T-FB-oaq">
             <objects>
                 <tableViewController id="eLb-mF-IQr" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CIM-aQ-Qzs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="CIM-aQ-Qzs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DIG-Os-c9F">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="54" id="DIG-Os-c9F">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DIG-Os-c9F" id="OaQ-mm-ICC">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ROOM 166" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRX-D7-XaV">
+                                            <rect key="frame" x="25" y="16" width="183" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BOK-FH-9Yl" kind="presentation" id="FoE-Lp-aMF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -217,6 +227,52 @@
                 <exit id="deR-Yp-wik" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2124.5" y="353.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="scl-dd-C1V">
+            <objects>
+                <viewController id="BOK-FH-9Yl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nUr-RQ-cuz"/>
+                        <viewControllerLayoutGuide type="bottom" id="aBb-kc-na9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7LD-Bd-G3u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn0-nY-Zv0">
+                                <rect key="frame" x="16" y="519" width="343" height="52"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.66274509800000003" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="RESERVE THIS ROOM">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findARoom:" destination="oOa-Oj-T5z" eventType="touchUpInside" id="S6P-hN-jrM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ROOM 166" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUp-Yc-Ne8">
+                                <rect key="frame" x="16" y="73" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capacity: 6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze2-Fz-fik">
+                                <rect key="frame" x="16" y="102" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NGS-xv-oJ0"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4H-Nv-qB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543.5" y="353.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3uy-On-a8F">
@@ -256,8 +312,31 @@
             </objects>
             <point key="canvasLocation" x="2124.5" y="-371.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iZV-vl-aIw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eav-EL-o5p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hyj-91-fHa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BOK-FH-9Yl" kind="relationship" relationship="rootViewController" id="Jh7-yc-Cd7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbt-Yc-TWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543.5" y="-371.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="yellowJackets.jpg" width="1791" height="1891"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IZz-Fd-FBm"/>
+        <segue reference="7bI-MP-a3t"/>
+    </inferredMetricsTieBreakers>
 </document>

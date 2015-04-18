@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     
     let blurEffect: UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
     var effect:UIVisualEffectView!
+    var cookies:NSString!
+    var url:NSString!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,58 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func loginButtonClicked(sender: AnyObject) {
+        self.passwordField.endEditing(true)
+        let url = NSURL(string: "http://culcreserve.herokuapp.com/login")!
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.HTTPBody = "{\n  \"user\": \"\(emailField.text)\",\n  \"pass\": \"\(passwordField.text)\"\n}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        var indicator = UIActivityIndicatorView();
+        indicator.frame = CGRectMake(0, 0, 40, 40)
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        indicator.bringSubviewToFront(self.view)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        indicator.startAnimating()
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
+            
+            var parseError: NSError?
+            let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
+//            println(parsedObject)
+            
+            if let toplevel = parsedObject as? NSDictionary {
+                if let error: AnyObject = toplevel["error"] {
+                    indicator.stopAnimating()
+                    var alertController = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: UIAlertControllerStyle.Alert)
+                    var action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+                    alertController.addAction(action)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                } else {
+                    if let toplevel = parsedObject as? NSDictionary {
+                        if let cookie: AnyObject = toplevel["cookies"] {
+                            self.cookies = cookie as? NSString
+                        }
+                        if let requestSpaces: AnyObject = toplevel["requestSpaces"] {
+                            if let breakRoomURL: AnyObject? = requestSpaces["Clough Breakout Rooms-INSTANT RESERVATION"] {
+                                self.url = breakRoomURL as? NSString
+                            }
+                        }
+                    }
+                    indicator.stopAnimating()
+
+                    self.performSegueWithIdentifier("reservations", sender: nil)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
@@ -61,6 +115,14 @@ class ViewController: UIViewController {
             self.emailField.endEditing(true)
             self.passwordField.endEditing(true)
             }, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "reservations") {
+            var controller = segue.destinationViewController as! ReservationViewController
+            controller.URL = self.url
+            controller.cookies = self.cookies
+        }
     }
     
     
