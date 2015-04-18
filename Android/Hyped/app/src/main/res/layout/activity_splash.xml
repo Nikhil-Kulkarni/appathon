@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
 
     android:src="@drawable/jacket"
-
+    android:id = "@+id/layout"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -31,7 +31,9 @@
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="GT Username" />
+        android:text=""
+        android:inputType="text"
+        android:hint="GT Account"/>
     <EditText
         android:layout_width="800dp"
         android:layout_height="wrap_content"
@@ -39,7 +41,9 @@
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
-        android:text="Password" />
+        android:text=""
+        android:inputType="textPassword"
+        android:hint="Password"/>
 
     <TextView
         android:layout_width="wrap_content"

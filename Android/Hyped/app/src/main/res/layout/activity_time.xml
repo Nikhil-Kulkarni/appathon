@@ -8,16 +8,17 @@
 
 
     <DatePicker
-        android:layout_height="wrap_content"
         android:id="@+id/datePicker"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentTop="true"
-        android:layout_width="150dp"/>
+        android:layout_width="130dp"
+        android:layout_height="390dp"/>
 
     <TimePicker
-        android:layout_width="200dp"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="180dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/timePicker"
         android:layout_alignParentBottom="false"
@@ -31,13 +32,14 @@
         android:textColor="@android:color/black"
         android:text="Press to book a room!"
         android:id="@+id/bookbutton"
-        android:layout_marginTop="455dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="475dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="sendList"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select Date and Time:"
         android:id="@+id/dateAndTime"
