@@ -38,6 +38,14 @@ class ReservationViewController: UIViewController {
     let welcome = UILabel(frame: CGRectMake(0, 78, 237, 38))
     
     @IBAction func findARoom(sender: AnyObject) {
+        var indicator = UIActivityIndicatorView();
+        indicator.frame = CGRectMake(0, 0, 40, 40)
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        indicator.bringSubviewToFront(self.view)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        indicator.startAnimating()
+        
         let url = NSURL(string: "http://culcreserve.herokuapp.com/find")!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
@@ -60,16 +68,17 @@ class ReservationViewController: UIViewController {
         if let toplevel = self.parsedObject as? NSDictionary {
             if let error: AnyObject = toplevel["error"] {
                 println("ERROR")
+                indicator.stopAnimating()
             } else {
-                
+                indicator.stopAnimating()
             }
                 self.performSegueWithIdentifier("viewList", sender: nil)
             }
         }
         task.resume()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(animated: Bool) {
         var picker:UIDatePicker = UIDatePicker()
         picker.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         picker.datePickerMode = UIDatePickerMode.DateAndTime
@@ -77,6 +86,10 @@ class ReservationViewController: UIViewController {
         picker.addTarget(self, action: Selector("timeChange:"), forControlEvents: UIControlEvents.ValueChanged)
         picker.frame = CGRectMake(9, 199, 359, 162)
         self.view.addSubview(picker)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         println(URL)
         println(cookies)
@@ -90,9 +103,10 @@ class ReservationViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewList" {
-            var controller = segue.destinationViewController as! RoomTableTableViewController
-            controller.parsedObject = self.parsedObject
-            controller.cookies = self.cookies
+            var controller = segue.destinationViewController as! UINavigationController
+            var destination = controller.viewControllers[0] as! RoomTableTableViewController
+            destination.parsedObject = self.parsedObject
+            destination.cookies = self.cookies
         }
     }
     

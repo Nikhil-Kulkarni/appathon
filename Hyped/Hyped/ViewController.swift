@@ -88,7 +88,6 @@ class ViewController: UIViewController {
                         }
                     }
                     indicator.stopAnimating()
-
                     self.performSegueWithIdentifier("reservations", sender: nil)
                 }
             }
@@ -119,9 +118,10 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "reservations") {
-            var controller = segue.destinationViewController as! ReservationViewController
-            controller.URL = self.url
-            controller.cookies = self.cookies
+            var controller = segue.destinationViewController as! UINavigationController
+            var destination = controller.viewControllers[0] as! ReservationViewController
+            destination.URL = self.url
+            destination.cookies = self.cookies
         }
     }
     

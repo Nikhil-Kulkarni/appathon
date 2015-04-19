@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115131F31AE34D88003322E0 /* RoomTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115131F21AE34D88003322E0 /* RoomTableTableViewController.swift */; };
+		11763D051AE43B3A0066CD63 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11763D041AE43B3A0066CD63 /* background.jpg */; };
 		11DD6D381AE1CBB8005EB151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DD6D371AE1CBB8005EB151 /* AppDelegate.swift */; };
 		11DD6D3B1AE1CBB8005EB151 /* Hyped.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11DD6D391AE1CBB8005EB151 /* Hyped.xcdatamodeld */; };
 		11DD6D3D1AE1CBB8005EB151 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DD6D3C1AE1CBB8005EB151 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		115131F21AE34D88003322E0 /* RoomTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableTableViewController.swift; sourceTree = "<group>"; };
+		11763D041AE43B3A0066CD63 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		11DD6D321AE1CBB8005EB151 /* Hyped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DD6D361AE1CBB8005EB151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11DD6D371AE1CBB8005EB151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				11DD6D3E1AE1CBB8005EB151 /* Main.storyboard */,
 				11DD6D5C1AE1FC4E005EB151 /* ReservationViewController.swift */,
 				115131F21AE34D88003322E0 /* RoomTableTableViewController.swift */,
+				11763D041AE43B3A0066CD63 /* background.jpg */,
 				11DD6D411AE1CBB8005EB151 /* Images.xcassets */,
 				11DD6D5A1AE1EE63005EB151 /* yellowJackets.jpg */,
 				11DD6D431AE1CBB8005EB151 /* LaunchScreen.xib */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11DD6D401AE1CBB8005EB151 /* Main.storyboard in Resources */,
+				11763D051AE43B3A0066CD63 /* background.jpg in Resources */,
 				11DD6D5B1AE1EE63005EB151 /* yellowJackets.jpg in Resources */,
 				11DD6D451AE1CBB8005EB151 /* LaunchScreen.xib in Resources */,
 				11DD6D421AE1CBB8005EB151 /* Images.xcassets in Resources */,
