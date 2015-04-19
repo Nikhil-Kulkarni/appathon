@@ -14,6 +14,7 @@ class ReservationViewController: UIViewController {
     var cookies:NSString!
     var dateInMilliseconds:NSString!
     var minutesDelay:NSString!
+    var parsedObject:AnyObject!
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
@@ -45,20 +46,18 @@ class ReservationViewController: UIViewController {
         cookies = cookies.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
         
         request.HTTPBody = "{\n  \"cookies\": \"\(cookies)\",\n  \"breakoutRoomUrl\": \"\(self.URL)\", \n \"start\": \"\(self.dateInMilliseconds)\", \n  \"minutes\": \"\(self.minutesDelay)\"}".dataUsingEncoding(NSUTF8StringEncoding)
-        
-        println("{\n  \"cookies\": \"\(cookies)\",\n  \"breakoutRoomURL\": \"\(self.URL)\", \n \"start\": \"\(self.dateInMilliseconds)\", \n  \"minutes\": \"\(self.minutesDelay)\"}")
     
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
             
             var parseError: NSError?
-            let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
-            println(parsedObject)
-            println(response)
-            println(data)
+            self.parsedObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
+//            println(self.parsedObject)
+//            println(response)
+//            println(data)
             
         
-        if let toplevel = parsedObject as? NSDictionary {
+        if let toplevel = self.parsedObject as? NSDictionary {
             if let error: AnyObject = toplevel["error"] {
                 println("ERROR")
             } else {
@@ -86,7 +85,15 @@ class ReservationViewController: UIViewController {
     
     func timeChange(datePicker:UIDatePicker) {
         dateInMilliseconds = (Int(datePicker.date.timeIntervalSince1970*1000)).description
-        println((datePicker.date.timeIntervalSinceReferenceDate*1000).description)
+//        println((datePicker.date.timeIntervalSinceReferenceDate*1000).description)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewList" {
+            var controller = segue.destinationViewController as! RoomTableTableViewController
+            controller.parsedObject = self.parsedObject
+            controller.cookies = self.cookies
+        }
     }
     
 
