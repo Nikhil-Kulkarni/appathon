@@ -95,9 +95,8 @@ class ViewController: UIViewController {
         task.resume()
     }
     
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        
+
+    @IBAction func canceled(sender: AnyObject) {
         UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
             self.effect.removeFromSuperview()
             self.popoverView.transform = CGAffineTransformMakeTranslation(0, self.popoverView.frame.height * -1 - 15)

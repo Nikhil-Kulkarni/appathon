@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Security
 
 class ReservationViewController: UIViewController {
     
@@ -60,7 +61,7 @@ class ReservationViewController: UIViewController {
             
             var parseError: NSError?
             self.parsedObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parseError)
-//            println(self.parsedObject)
+            println(self.parsedObject)
 //            println(response)
 //            println(data)
             
@@ -69,10 +70,16 @@ class ReservationViewController: UIViewController {
             if let error: AnyObject = toplevel["error"] {
                 println("ERROR")
                 indicator.stopAnimating()
-            } else {
-                indicator.stopAnimating()
             }
-                self.performSegueWithIdentifier("viewList", sender: nil)
+            if let reservation: AnyObject = toplevel["reservations"] {
+                if let cap: AnyObject? = reservation["capacity"] {
+                    self.performSegueWithIdentifier("viewList", sender: nil)
+                }
+            }
+            var alertController = UIAlertController(title: "Sorry!", message: "There are no rooms available for this time", preferredStyle: UIAlertControllerStyle.Alert)
+            var action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(action)
+            self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
         task.resume()
